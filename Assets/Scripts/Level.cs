@@ -8,6 +8,7 @@ public class Level : MonoBehaviour
     private const float Pipe_Width=8.56f;
     private const float Pipe_head_height=3.75f;
     private const float pipe_speed=30f;
+   
 
     private static Level instance;
 
@@ -58,7 +59,7 @@ public class Level : MonoBehaviour
 
             float height=Random.Range(minheight,mxhgt);
 
-            CreateGapPipe(height,gapSize,120f);//Gap size between pipes is 20f
+            CreateGapPipe(height,gapSize,50f);
 
         }
     }
@@ -146,7 +147,7 @@ public class Level : MonoBehaviour
        pipes.Add(pipe);
    }
 
-   public float GetPipesPassed(){
+   public int GetPipesPassed(){
        return pipesPassed/2;
    }
    ///Representing single pipe

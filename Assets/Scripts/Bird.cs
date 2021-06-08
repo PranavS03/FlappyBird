@@ -5,7 +5,7 @@ using System;
 
 public class Bird : MonoBehaviour
 {
-    private const float JUMP = 100f;
+    private const float JUMP = 75f;
 
     public event EventHandler OnDeath;
     public event EventHandler startedPlaying;
@@ -49,6 +49,7 @@ public class Bird : MonoBehaviour
             {
                 Jump();
             }
+            transform.eulerAngles=new Vector3(0,0,birdrigidbody2D.velocity.y *.2f);
             break;
             case State.Dead:
             break;
@@ -61,12 +62,16 @@ public class Bird : MonoBehaviour
     private void Jump()
     {
         birdrigidbody2D.velocity = Vector2.up * JUMP;
+        SoundManager.playsound();
 
     }
     private void OnTriggerEnter2D(Collider2D collider){
        
         birdrigidbody2D.bodyType=RigidbodyType2D.Static;
         if (OnDeath!=null) OnDeath(this,EventArgs.Empty);
+        SoundManager.playsound2();
+
+
         
 
     }
