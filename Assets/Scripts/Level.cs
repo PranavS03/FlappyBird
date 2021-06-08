@@ -90,15 +90,10 @@ public class Level : MonoBehaviour
     private void Bird_OnStartedPlaying(object sender,System.EventArgs e){
         state=State.Playing;
     }
-    IEnumerator wait(){
-        yield return new WaitForSeconds(1f);
-
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
-    }
     private void Bird_OnDied(object sender,System.  EventArgs e){
          print("DEAD!!!");
          state=State.BirdDead;
-         StartCoroutine(wait());
+        
          
     }
     

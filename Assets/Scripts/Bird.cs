@@ -40,7 +40,7 @@ public class Bird : MonoBehaviour
                 state=State.Playing;
                 birdrigidbody2D.bodyType=RigidbodyType2D.Dynamic;
                 Jump();
-                if(startedPlaying!=null) startedPlaying(this,EventArgs.Empty);
+                if(startedPlaying!=null) startedPlaying(this,EventArgs.Empty);      
 
                 }
             break;
@@ -67,6 +67,7 @@ public class Bird : MonoBehaviour
        
         birdrigidbody2D.bodyType=RigidbodyType2D.Static;
         if (OnDeath!=null) OnDeath(this,EventArgs.Empty);
+        
 
     }
     
